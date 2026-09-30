@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.7.0 (30/09/2026)
+
++ Allow Symfony 7.4
++ Convert annotation to attribute for entities
+
 ## 2.6.1 (05/11/2024)
 
 - Remove composer.lock

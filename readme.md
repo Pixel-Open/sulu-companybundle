@@ -1,6 +1,6 @@
 # Sulu Company bundle
 
-![GitHub release (with filter)](https://img.shields.io/github/v/release/Pixel-Developpement/sulu-companybundle?style=for-the-badge)
+![GitHub release (with filter)](https://img.shields.io/github/v/release/Pixel-Open/sulu-companybundle?style=for-the-badge)
 [![Dependency](https://img.shields.io/badge/sulu-2.5-cca000.svg?style=for-the-badge)](https://sulu.io/)
 
 ## Presentation

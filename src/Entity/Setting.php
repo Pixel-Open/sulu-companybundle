@@ -7,11 +7,9 @@ use JMS\Serializer\Annotation as Serializer;
 use Sulu\Component\Persistence\Model\AuditableInterface;
 use Sulu\Component\Persistence\Model\AuditableTrait;
 
-/**
- * @ORM\Entity()
- * @ORM\Table(name="company_settings")
- * @Serializer\ExclusionPolicy("all")
- */
+#[ORM\Entity()]
+#[ORM\Table(name: "company_settings")]
+#[Serializer\ExclusionPolicy("all")]
 class Setting implements AuditableInterface
 {
     use AuditableTrait;
@@ -20,81 +18,63 @@ class Setting implements AuditableInterface
     public const FORM_KEY = "company_settings";
     public const SECURITY_CONTEXT = "company_settings.settings";
 
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     * @Serializer\Expose()
-     */
+    #[ORM\Id()]
+    #[ORM\GeneratedValue()]
+    #[ORM\Column(type: "integer")]
+    #[Serializer\Expose()]
     private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "string", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $name = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "string", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $email = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "string", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $phoneNumber = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "string", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $mobilePhoneNumber = null;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
-     * @Serializer\Expose()
      * @var array<mixed>|null
      */
+    #[ORM\Column(type: "json", nullable: true)]
+    #[Serializer\Expose()]
     private ?array $address = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "string", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $placeId = null;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "string", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $apiKey = null;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
-     * @Serializer\Expose()
      * @var array<string>|null
      */
+    #[ORM\Column(type: "json", nullable: true)]
+    #[Serializer\Expose()]
     private ?array $openingHours = null;
 
     /**
-     * @ORM\Column(type="json", nullable=true)
-     * @Serializer\Expose()
      * @var array<mixed>|null
      */
+    #[ORM\Column(type: "json", nullable: true)]
+    #[Serializer\Expose()]
     private ?array $googleMyBusiness = null;
 
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "boolean", nullable: true)]
+    #[Serializer\Expose()]
     private ?bool $useGoogleHours = null;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     * @Serializer\Expose()
-     */
+    #[ORM\Column(type: "text", nullable: true)]
+    #[Serializer\Expose()]
     private ?string $aboutHours = null;
 
     public function getId(): ?int

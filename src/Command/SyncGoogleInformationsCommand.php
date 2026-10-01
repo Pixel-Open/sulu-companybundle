@@ -4,15 +4,18 @@ namespace Pixel\CompanyBundle\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Pixel\CompanyBundle\Entity\Setting;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
+#[AsCommand(
+    name: "sync:google:informations",
+    description: "Synchronizes the informations with the ones from Google"
+)]
 class SyncGoogleInformationsCommand extends Command
 {
-    protected static $defaultName = "sync:google:informations";
-    protected static $defaultDescription = "Synchronizes the informations with the ones from Google";
     private EntityManagerInterface $entityManager;
     private HttpClientInterface $client;
 
@@ -31,7 +34,7 @@ class SyncGoogleInformationsCommand extends Command
         $this->setHelp("Synchronizes the informations with the ones from Google");
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln("Synchronization...");
         $setting = $this->entityManager->getRepository(Setting::class)->findOneBy([]);
@@ -56,7 +59,7 @@ class SyncGoogleInformationsCommand extends Command
                 $setting->setGoogleMyBusiness($content);
                 $this->entityManager->persist($setting);
                 $this->entityManager->flush();
-                $output->writeln("<info>Synchronization ended sucessfully!</info>");
+                $output->writeln("<info>Synchronization ended successfully!</info>");
                 return self::SUCCESS;
             } else {
                 $output->writeln("<error>An error occurs during the synchronisation</error>");

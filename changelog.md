@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.1 (01/10/2026)
+
++ Compatible for Symfony 7.4
++ Convert annotation to attribute
+- Fix TreeBuilder for configuration for Symfony 7.4
+
 ## 2.7.0 (30/09/2026)
 
 + Allow Symfony 7.4
